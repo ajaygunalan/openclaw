@@ -185,12 +185,12 @@ To opt in to streaming for a specific Ollama model, configure:
       models: {
         "ollama/gpt-oss:20b": {
           params: {
-            streaming: true
-          }
-        }
-      }
-    }
-  }
+            streaming: true,
+          },
+        },
+      },
+    },
+  },
 }
 ```
 
@@ -203,12 +203,12 @@ You can also disable streaming for other providers via the same `params.streamin
       models: {
         "openai/gpt-4": {
           params: {
-            streaming: false
-          }
-        }
-      }
-    }
-  }
+            streaming: false,
+          },
+        },
+      },
+    },
+  },
 }
 ```
 
@@ -272,12 +272,12 @@ Set the model back to non-streaming:
       models: {
         "ollama/gpt-oss:20b": {
           params: {
-            streaming: false
-          }
-        }
-      }
-    }
-  }
+            streaming: false,
+          },
+        },
+      },
+    },
+  },
 }
 ```
 
