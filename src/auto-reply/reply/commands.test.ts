@@ -272,9 +272,11 @@ describe("handleCommands subagents", () => {
     const params = buildParams("/subagents list", cfg);
     const result = await handleCommands(params);
     expect(result.shouldContinue).toBe(false);
-    expect(result.reply?.text).toContain("active:");
-    expect(result.reply?.text).toContain("recent (last 30m):");
-    expect(result.reply?.text).toContain("\n\nrecent (last 30m):");
+    expect(result.reply?.text).toContain("active subagents:");
+    expect(result.reply?.text).toContain("active subagents:\n-----\n");
+    expect(result.reply?.text).toContain("recent subagents (last 30m):");
+    expect(result.reply?.text).toContain("\n\nrecent subagents (last 30m):");
+    expect(result.reply?.text).toContain("recent subagents (last 30m):\n-----\n");
   });
 
   it("truncates long subagent task text in /subagents list", async () => {
@@ -338,9 +340,9 @@ describe("handleCommands subagents", () => {
     params.sessionKey = "agent:main:slack:slash:u1";
     const result = await handleCommands(params);
     expect(result.shouldContinue).toBe(false);
-    expect(result.reply?.text).toContain("active:");
+    expect(result.reply?.text).toContain("active subagents:");
     expect(result.reply?.text).toContain("do thing");
-    expect(result.reply?.text).toContain("\n\n2.");
+    expect(result.reply?.text).not.toContain("\n\n2.");
   });
 
   it("formats subagent usage with io and prompt/cache breakdown", async () => {

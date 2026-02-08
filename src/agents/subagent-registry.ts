@@ -507,12 +507,10 @@ export function resetSubagentRegistryForTests() {
     listenerStop = null;
   }
   listenerStarted = false;
-  persistSubagentRuns();
 }
 
 export function addSubagentRunForTests(entry: SubagentRunRecord) {
   subagentRuns.set(entry.runId, entry);
-  persistSubagentRuns();
 }
 
 export function releaseSubagentRun(runId: string) {

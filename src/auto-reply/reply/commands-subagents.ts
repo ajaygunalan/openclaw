@@ -467,17 +467,17 @@ export const handleSubagentsCommand: CommandHandler = async (params, allowTextCo
         return line;
       });
 
-    const lines = ["active:"];
+    const lines = ["active subagents:", "-----"];
     if (activeLines.length === 0) {
       lines.push("(none)");
     } else {
-      lines.push(activeLines.join("\n\n"));
+      lines.push(activeLines.join("\n"));
     }
-    lines.push("", `recent (last ${RECENT_WINDOW_MINUTES}m):`);
+    lines.push("", `recent subagents (last ${RECENT_WINDOW_MINUTES}m):`, "-----");
     if (recentLines.length === 0) {
       lines.push("(none)");
     } else {
-      lines.push(recentLines.join("\n\n"));
+      lines.push(recentLines.join("\n"));
     }
     return { shouldContinue: false, reply: { text: lines.join("\n") } };
   }
